@@ -50,7 +50,8 @@ LOCAL_C_INCLUDES += $(call include-path-for, system-core)/cutils
 LOCAL_SHARED_LIBRARIES += liblog \
             libicuuc \
             libicui18n \
-            libutils
+            libutils \
+            liblog
 
 # include android specific methods
 LOCAL_WHOLE_STATIC_LIBRARIES := libsqlite3_android
@@ -65,7 +66,7 @@ ifeq ($(WITH_HOST_DALVIK),true)
     LOCAL_LDLIBS += -lpthread -ldl
     LOCAL_CFLAGS += $(common_sqlite_flags)
     LOCAL_MODULE:= libsqlite
-    LOCAL_SHARED_LIBRARIES += libicuuc libicui18n
+    LOCAL_SHARED_LIBRARIES += libicuuc-host libicui18n-host
     LOCAL_STATIC_LIBRARIES := liblog libutils libcutils
 
     # include android specific methods
