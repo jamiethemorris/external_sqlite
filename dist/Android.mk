@@ -59,10 +59,8 @@ LOCAL_SHARED_LIBRARIES += liblog \
 LOCAL_WHOLE_STATIC_LIBRARIES := libsqlite3_android
 
 ifeq ($(BOARD_USES_LIBQC_OPT),true)
-  ifneq ($(strip $(USER_HAS_PRIVATE_CFX_REPOS)),)
-    LOCAL_WHOLE_STATIC_LIBRARIES += libqc-sqlite
-    LOCAL_SHARED_LIBRARIES += libcutils
-  endif
+  LOCAL_WHOLE_STATIC_LIBRARIES += libqc-sqlite
+  LOCAL_SHARED_LIBRARIES += libcutils
 endif
 
 include $(BUILD_SHARED_LIBRARY)
